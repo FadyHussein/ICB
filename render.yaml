@@ -5,12 +5,10 @@ services:
     buildCommand: |
       cd backend && npm install && npm run build && \
       cd ../frontend && npm install && npm run build
-    startCommand: cd backend && node dist/server.js
+    startCommand: cd backend && npm run start
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 10000
       - key: CORS_ORIGIN
         value: https://icbsundayschool.onrender.com
       - key: EXCEL_FILE_PATH

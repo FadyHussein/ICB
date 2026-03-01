@@ -25,11 +25,13 @@ async function startServer(): Promise<void> {
     // Create Express app
     const app = createApp();
 
-    // Start listening
-    const server = app.listen(serverConfig.port, () => {
+    // Start listening on all interfaces (0.0.0.0) - required for Render.com and cloud deployment
+    // Binding to 0.0.0.0 allows external access instead of localhost only
+    const server = app.listen(serverConfig.port, '0.0.0.0', () => {
       logger.info(`Server started successfully`);
       logger.info(`Environment: ${serverConfig.nodeEnv}`);
       logger.info(`Port: ${serverConfig.port}`);
+      logger.info(`Listening on: 0.0.0.0:${serverConfig.port}`);
       logger.info(`Excel file: ${excelConfig.filePath}`);
       logger.info(`API available at: http://localhost:${serverConfig.port}/api/v1`);
     });
