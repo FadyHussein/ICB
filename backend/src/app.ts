@@ -1,6 +1,7 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
+import path from 'path';
 import { serverConfig } from './config/server.config';
 import routes from './routes';
 import { errorHandler, notFoundHandler } from './middleware/error-handler';
@@ -47,11 +48,25 @@ export function createApp(): Application {
   // API routes
   app.use('/api/v1', routes);
 
-  // Serve static files (placeholder for future frontend)
-  app.use(express.static('public'));
+  // Serve frontend static files in production
+  // In development, Vite dev server handles this on port 5173
+  if (serverConfig.nodeEnv === 'production') {
+    const frontendBuildPath = path.join(__dirname, '../../frontend/dist');
+    app.use(express.static(frontendBuildPath));
 
-  // 404 handler
-  app.use(notFoundHandler);
+    // SPA fallback: serve index.html for all non-API routes
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(frontendBuildPath, 'index.html'));
+    });
+  } else {
+    // Development: serve placeholder
+    app.use(express.static('public'));
+  }
+
+  // 404 handler (only for API routes in development)
+  if (serverConfig.nodeEnv !== 'production') {
+    app.use(notFoundHandler);
+  }
 
   // Error handling middleware (must be last)
   app.use(errorHandler);

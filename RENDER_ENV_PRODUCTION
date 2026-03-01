@@ -1,0 +1,27 @@
+# Production Environment Variables for Render.com
+# Copy these to Render Dashboard or use render.yaml
+
+# Server Configuration
+PORT=10000
+NODE_ENV=production
+
+# CORS Configuration - Frontend Domain
+CORS_ORIGIN=https://icbsundayschool.onrender.com
+
+# Persistent Disk Paths (Render provides /var/data)
+EXCEL_FILE_PATH=/var/data/master-data.xlsx
+BACKUP_DIR=/var/data/backups
+
+# Backup Settings
+BACKUP_RETENTION_DAYS=30
+MAX_BACKUPS=50
+
+# Rate Limiting
+RATE_LIMIT_WINDOW_MS=60000
+RATE_LIMIT_MAX_REQUESTS=100
+RATE_LIMIT_ATTENDANCE_MAX=30
+RATE_LIMIT_BULK_MAX=10
+
+# Logging
+LOG_LEVEL=info
+LOG_FILE=/var/data/logs/server.log

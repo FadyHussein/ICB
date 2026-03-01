@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: icb-attendance-app
+    runtime: node
+    buildCommand: |
+      cd backend && npm install && npm run build && \
+      cd ../frontend && npm install && npm run build
+    startCommand: cd backend && node dist/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: CORS_ORIGIN
+        value: https://icbsundayschool.onrender.com
+      - key: EXCEL_FILE_PATH
+        value: /var/data/master-data.xlsx
+      - key: BACKUP_DIR
+        value: /var/data/backups
+      - key: LOG_LEVEL
+        value: info
+      - key: LOG_FILE
+        value: /var/data/logs/server.log
+    disk:
+      name: data
+      mountPath: /var/data
+      sizeGB: 10
