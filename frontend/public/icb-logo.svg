@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" width="300" height="100">
+  <!-- Mosque Minaret -->
+  <g fill="#2C5F6F">
+    <!-- Base of minaret -->
+    <rect x="15" y="45" width="15" height="35" />
+    <!-- Minaret tower -->
+    <rect x="17" y="30" width="11" height="15" />
+    <!-- Minaret top -->
+    <path d="M 17 30 L 22.5 20 L 28 30 Z" />
+    <!-- Minaret dome -->
+    <ellipse cx="22.5" cy="20" rx="3" ry="2" />
+  </g>
+  
+  <!-- Crescent Moon -->
+  <g fill="#2C5F6F">
+    <path d="M 35 25 Q 30 28 30 35 Q 30 42 35 45 Q 32 42 32 35 Q 32 28 35 25 Z" />
+    <!-- Star -->
+    <circle cx="42" cy="30" r="1.5" />
+  </g>
+  
+  <!-- Mosque Dome -->
+  <g fill="#2C5F6F">
+    <ellipse cx="22.5" cy="45" rx="15" ry="8" />
+    <rect x="10" y="45" width="25" height="35" />
+    <!-- Entrance arch -->
+    <path d="M 18 60 Q 22.5 55 27 60 L 27 80 L 18 80 Z" fill="#fff" />
+  </g>
+  
+  <!-- Text: ISLAMIC -->
+  <text x="75" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2C5F6F">ISLAMIC</text>
+  
+  <!-- Text: CENTER OF -->
+  <text x="75" y="52" font-family="Arial, sans-serif" font-size="12" fill="#2C5F6F">CENTER OF</text>
+  
+  <!-- Text: BOISE -->
+  <text x="75" y="70" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2C5F6F">BOISE</text>
+</svg>

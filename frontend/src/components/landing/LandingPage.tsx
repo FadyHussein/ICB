@@ -28,6 +28,26 @@ const LandingPage: React.FC = () => {
     >
       <Container maxWidth="md">
         <Box textAlign="center" mb={6}>
+          {/* ICB Logo */}
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              mb: 3,
+            }}
+          >
+            <img
+              src="/icb-logo.svg"
+              alt="Islamic Center of Boise Logo"
+              style={{
+                height: '120px',
+                width: 'auto',
+                filter: 'brightness(0) invert(1)',
+                opacity: 0.95,
+              }}
+            />
+          </Box>
+          
           <Typography
             variant="h1"
             sx={{
